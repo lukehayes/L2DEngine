@@ -6,6 +6,8 @@ function Sprite:initialize(x,y, sprite_path)
     self.x = x
     self.y = y
     self.scale = 3
+    self.image = love.graphics.newImage(sprite_path)
+    self.image:setFilter('nearest', 'nearest')
     self.tile_size = 16
 
     --Animation config
