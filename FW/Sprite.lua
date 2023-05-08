@@ -2,10 +2,9 @@ local class = require 'libs/middleclass'
 
 local Sprite = class('Sprite')
 
-function Sprite:initialize(x,y)
+function Sprite:initialize(x,y, sprite_path)
     self.x = x
     self.y = y
-    self.image = love.graphics.newImage('assets/green-tiles.png')
     self.scale = 3
     self.tile_size = 16
 
