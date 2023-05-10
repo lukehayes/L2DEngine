@@ -13,7 +13,6 @@ table.insert(container, so)
 table.insert(container, s2)
 
 function love.load()
-    love.graphics.setDefaultFilter('nearest', 'nearest')
 end
 
 function love.update(dt)
