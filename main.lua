@@ -4,7 +4,6 @@ local Renderer = require('FW.Renderer')
 
 local so = Sprite:new(300,100, 'assets/tiles.png',5,8)
 local s2 = AnimSprite:new(100,400, 'assets/tiles.png',12, 21,26)
-local rr = Renderer:new()
 
 local c = 0
 
@@ -26,7 +25,6 @@ end
 
 function love.draw()
     --love.graphics.rectangle("fill",100,100,100,100)
-    rr:drawSprite(so)
     for k,v in ipairs(container) do
        v:draw()
     end
