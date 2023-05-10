@@ -1,30 +1,63 @@
+--------------------------------------------------------------------------------
+-- A simple container that sprites or any other object can be added too. Once
+-- an object has been added then its update() and draw() methods are
+-- called automatically 
+--
+-- @classmod Container
+--
 local class = require 'libs/middleclass'
 
-local Contianer = class('Contianer')
+local Container = class('Container')
 
-function Contianer:initialize()
+--------------------------------------------------------------------------------
+-- Constructor.
+--
+-- @usage
+-- -- local Container = require 'FW.Container'
+-- -- local co = Container:new()
+function Container:initialize()
     self.entities = {}
 end
 
-function Contianer:size()
+--------------------------------------------------------------------------------
+-- Get the number of elements inside the container.
+--
+-- @return number
+function Container:size()
     return #self.entities
 end
 
-function Contianer:add(entity)
+--------------------------------------------------------------------------------
+-- Add an object to the container
+--
+-- @param entity The object to be stored inside the container
+--
+-- @return nil
+function Container:add(entity)
     table.insert(self.entities, entity)
 end
 
-function Contianer:draw()
+--------------------------------------------------------------------------------
+-- Run every object stored in the containers draw() method.
+--
+-- @return nil
+function Container:draw()
     for k,v in ipairs(self.entities) do
        v:draw()
     end
 end
 
-function Contianer:update(dt)
+--------------------------------------------------------------------------------
+-- Run every object stored in the containers update() method.
+--
+-- @tparam number dt Delta time.
+--
+-- @return nil
+function Container:update(dt)
     for k,v in ipairs(self.entities) do
        v:update(dt)
     end
 end
 
-return Contianer
+return Container
 
