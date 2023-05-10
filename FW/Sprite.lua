@@ -3,6 +3,7 @@
 --
 -- @classmod Sprite
 local class = require 'libs/middleclass'
+local Object = require 'FW.Object'
 
 local Sprite = class('Sprite')
 
@@ -19,8 +20,7 @@ local Sprite = class('Sprite')
 -- -- local Sprite = require 'FW.Sprite'
 -- -- local Spr = Sprite:new(100,100, 'tiles.png', 20,10)
 function Sprite:initialize(x,y, path, frame_x, frame_y)
-    self.x = x
-    self.y = y
+    Object.initialize(self, x,y)
     self.image = love.graphics.newImage(path)
     self.image:setFilter('nearest', 'nearest')
     self.scale = 10
