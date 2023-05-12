@@ -32,14 +32,14 @@ function EventManager:initialize()
 end
 
 --------------------------------------------------------------------------------
--- Run a specific event.
+-- Run all of the functions attacted to a specific hook.
 -- 
--- @tparam string event The event name.
+-- @tparam string event The hook name.
 --
 -- @usage
 -- -- local em = EventManager:new()
--- -- em:run('draw_begin')
-function EventManager:run(event)
+-- -- em:emit('draw_begin')
+function EventManager:emit(event)
     for k,v in ipairs(self.events[event]) do
         v()
     end

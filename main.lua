@@ -30,14 +30,14 @@ end
 
 
 function love.load()
-    em:run('init')
+    em:emit('init')
 end
 
 function love.update(dt)
     -- Hacky but it works - make delta time global.
     _G.dt = dt
 
-    em:run('update_begin')
+    em:emit('update_begin')
 
     c:update(dt)
 
@@ -63,17 +63,17 @@ function love.update(dt)
     else 
         s3.current_anim = s3.animations['knight']['idle'][s3.anim_direction]
     end
-    em:run('update_end')
+    em:emit('update_end')
 end
 
 function love.draw()
-    em:run('draw_begin')
+    em:emit('draw_begin')
     --love.graphics.rectangle("fill",100,100,100,100)
    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
 
     love.graphics.setBackgroundColor(0.7,0.7,0.7,1.0)
     c:draw()
-    em:run('draw_end')
+    em:emit('draw_end')
 end
 
 function love.keypressed(key)
