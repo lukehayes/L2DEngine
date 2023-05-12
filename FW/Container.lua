@@ -45,9 +45,9 @@ function Container:draw()
     for k,v in ipairs(self.entities) do
 
        --TODO This is just for fun, will remove later.
-       love.graphics.setColor(0.4,0.4,0.4,0.5)
+       love.graphics.setColor(0.5,0.5,0.5,0.7)
        love.graphics.setBlendMode('darken', 'premultiplied')
-       love.graphics.circle('fill', v.x + 24, v.y + 36, 17)
+       love.graphics.circle('fill', v.x + 24, v.y + 42, 17)
 
        love.graphics.setColor(1,1,1,1)
        love.graphics.setBlendMode('alpha')
