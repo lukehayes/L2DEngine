@@ -31,7 +31,7 @@ function AnimatedSprite:initialize(x,y, path)
 
     self.animations = require 'FW.animations'
 
-    self.current_anim = self.animations['idle']['down']
+    self.current_anim = self.animations['knight']['walk']['down']
     self.current_frame = self.current_anim.frame_x
 end
 
