@@ -3,6 +3,7 @@ local AnimSprite = require('FW.AnimatedSprite')
 local Renderer = require('FW.Renderer')
 local Container = require('FW.Container')
 local Object = require('FW.Object')
+local EventManager = require('FW.EventManager')
 
 local so = Sprite:new(0,0, 'assets/trees.png',2,0)
 so.tile_size = 256
@@ -13,6 +14,7 @@ local c = Container:new()
 local c2 = Container:new()
 
 c:add(so)
+local em = EventManager:new()
 
 
 function fillContainer(c)
@@ -31,16 +33,15 @@ end
 
 
 function love.load()
-    fillContainer(10)
+    em:run('init')
 end
 
 function love.update(dt)
     -- Hacky but it works - make delta time global.
     _G.dt = dt
 
-    c2:update(dt)
+    em:run('update_begin')
     c:update(dt)
-    s3:update(dt)
 
     local speed = 200
 
@@ -64,9 +65,11 @@ function love.update(dt)
     else 
         s3.current_anim = s3.animations['idle'][s3.anim_direction]
     end
+    em:run('update_end')
 end
 
 function love.draw()
+    em:run('draw_begin')
     --love.graphics.rectangle("fill",100,100,100,100)
    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
 
@@ -74,6 +77,7 @@ function love.draw()
     c:draw()
     c2:draw()
     s3:draw()
+    em:run('draw_end')
 end
 
 function love.keypressed(key)
