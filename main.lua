@@ -7,6 +7,7 @@ local EventManager = require('FW.EventManager')
 
 local s3 = AnimSprite:new(350,250, 'assets/tiles.png')
 local c = Container:new()
+local trees = Container:new()
 c:add(s3)
 
 local em = EventManager:new()
@@ -22,9 +23,9 @@ function fillContainer(num)
         local ry = love.math.random(10,h)
         local speed = love.math.random(10,100)
         local o = Sprite:new(rx,ry, 'assets/trees.png', love.math.random(0,4),0)
-        o.scale = 0.5
+        o.scale = 0.3
         o.tile_size = 256
-        c:add(o)
+        trees:add(o)
     end
 end
 
@@ -40,6 +41,7 @@ function love.update(dt)
     em:emit('update_begin')
 
     c:update(dt)
+    trees:update(dt)
 
     local speed = 200
 
@@ -69,13 +71,13 @@ function love.draw()
 
     love.graphics.setBackgroundColor(0.7,0.7,0.7,1.0)
     c:draw()
+    trees:draw()
     em:emit('draw_end')
 end
 
 function love.keypressed(key)
    if key == "space" then
-       c = Container:new()
-       print(love.graphics.getWidth())
-       fillContainer(love.graphics.getWidth() / 10)
+       trees = Container:new()
+       fillContainer(love.math.random(10,100))
    end
 end
