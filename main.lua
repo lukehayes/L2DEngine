@@ -11,8 +11,8 @@ c:add(s3)
 
 local em = EventManager:new()
 
-local animChar = 'ghost'
-local animMode = 'walk'
+local animChar = 'knight'
+local animMode = 'idle'
 
 function fillContainer(num)
     for n=1,num do
@@ -46,22 +46,18 @@ function love.update(dt)
     -- TODO Refactor this out into the player class.
     if love.keyboard.isDown('w') then
         s3.y = s3.y - 1 * speed * dt
-        s3.current_anim = s3.animations[animChar][animMode]['up']
-        s3.anim_direction = 'up'
+        s3:play(animChar, animMode, 'up')
     elseif love.keyboard.isDown('s') then
         s3.y = s3.y + 1 * speed * dt
-        s3.current_anim = s3.animations[animChar][animMode]['down']
-        s3.anim_direction = 'down'
+        s3:play(animChar, animMode, 'down')
     elseif love.keyboard.isDown('a') then
         s3.x = s3.x - 1 * speed * dt
-        s3.current_anim = s3.animations[animChar][animMode]['left']
-        s3.anim_direction = 'left'
+        s3:play(animChar, animMode, 'left')
     elseif love.keyboard.isDown('d') then
         s3.x = s3.x + 1 * speed * dt
-        s3.anim_direction = 'right'
-        s3.current_anim = s3.animations[animChar][animMode]['right']
+        s3:play(animChar, animMode, 'right')
     else 
-        s3.current_anim = s3.animations['knight']['idle'][s3.anim_direction]
+        s3:play(animChar, 'idle', s3.anim_direction)
     end
     em:emit('update_end')
 end

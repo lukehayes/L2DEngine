@@ -32,7 +32,7 @@ function AnimatedSprite:initialize(x,y, path)
 
     self.animations = require 'FW.animations'
 
-    self.current_anim = self.animations['knight']['walk']['down']
+    self.current_anim = self.animations['knight']['idle']['down']
     self.current_frame = self.current_anim.frame_x
 end
 
@@ -49,8 +49,11 @@ end
 -- Play an animation.
 --
 -- @return nil
-function AnimatedSprite:play()
+function AnimatedSprite:play(character, anim, dir)
     self.isPlaying = true
+    self.anim_direction = dir
+    self.current_anim = self.animations[character][anim][self.anim_direction]
+    return self.current_anim
 end
 
 --------------------------------------------------------------------------------
