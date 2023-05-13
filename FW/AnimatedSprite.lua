@@ -28,6 +28,7 @@ function AnimatedSprite:initialize(x,y, path)
     self.anim_timer = 0
     self.anim_speed = 0.15
     self.anim_direction = 'down'
+    self.isPlaying = false
 
     self.animations = require 'FW.animations'
 
@@ -42,6 +43,22 @@ end
 function AnimatedSprite:draw()
     local quad = love.graphics.newQuad(self.current_frame * self.tile_size,self.current_anim.frame_y * self.tile_size, self.tile_size, self.tile_size, self.image)
     love.graphics.draw(self.image,quad, self.x, self.y,0, self.scale, self.scale)
+end
+
+--------------------------------------------------------------------------------
+-- Play an animation.
+--
+-- @return nil
+function AnimatedSprite:play()
+    self.isPlaying = true
+end
+
+--------------------------------------------------------------------------------
+-- Stop the current animation.
+--
+-- @return nil
+function AnimatedSprite:stop()
+    self.isPlaying = false
 end
 
 --------------------------------------------------------------------------------
