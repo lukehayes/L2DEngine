@@ -23,7 +23,7 @@ function Sprite:initialize(x,y, path, frame_x, frame_y)
     Object.initialize(self, x,y)
     self.image = love.graphics.newImage(path)
     self.image:setFilter('nearest', 'nearest')
-    self.scale = 10
+    self.scale = 3
     self.tile_size = 16
     self.frame_x = frame_x
     self.frame_y = frame_y
