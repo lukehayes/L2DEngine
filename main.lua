@@ -48,16 +48,16 @@ function love.update(dt)
     -- TODO Refactor this out into the player class.
     if love.keyboard.isDown('w') then
         s3.y = s3.y - 1 * speed * dt
-        s3:play(animChar, animMode, 'up')
+        s3:play(animChar, 'walk', 'up')
     elseif love.keyboard.isDown('s') then
         s3.y = s3.y + 1 * speed * dt
-        s3:play(animChar, animMode, 'down')
+        s3:play(animChar, 'walk', 'down')
     elseif love.keyboard.isDown('a') then
         s3.x = s3.x - 1 * speed * dt
-        s3:play(animChar, animMode, 'left')
+        s3:play(animChar, 'walk', 'left')
     elseif love.keyboard.isDown('d') then
         s3.x = s3.x + 1 * speed * dt
-        s3:play(animChar, animMode, 'right')
+        s3:play(animChar, 'walk', 'right')
     else 
         s3:play(animChar, 'idle', s3.anim_direction)
     end
