@@ -8,9 +8,10 @@ local c = Container:new()
 c:add(player)
 
 local em = EventManager:new()
+em:emit('init')
 
 function love.load()
-    em:emit('init')
+    em:emit('engine_load')
     _G.game = {} -- Location for all helpful global functions, values etc.
 end
 

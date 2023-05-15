@@ -23,11 +23,12 @@ local EventManager = class('EventManager')
 -- -- local em = EventManager:new()
 function EventManager:initialize()
     self.events = {
-        ['init'] = {},
+        ['init']         = {},
+        ['engine_load']  = {},
         ['update_begin'] = {},
-        ['update_end'] = {},
-        ['draw_begin'] = {},
-        ['draw_end'] = {}
+        ['update_end']   = {},
+        ['draw_begin']   = {},
+        ['draw_end']     = {}
     }
 end
 
