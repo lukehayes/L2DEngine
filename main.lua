@@ -11,6 +11,7 @@ local em = EventManager:new()
 
 function love.load()
     em:emit('init')
+    _G.game = {} -- Location for all helpful global functions, values etc.
 end
 
 function love.update(dt)
