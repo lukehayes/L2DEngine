@@ -1,14 +1,17 @@
 local Sprite = require('FW.Sprite')
 local AnimSprite = require('FW.AnimatedSprite')
+local AnimSpriteRow = require('FW.AnimatedSpriteRow')
 local Container = require('FW.Container')
 local EventManager = require('FW.EventManager')
 
 local player = AnimSprite:new(350,250, 'assets/tiles.png')
+local star   = AnimSpriteRow:new(300,250, 'assets/pixel-star.png', 0,3)
 local c = Container:new()
 c:add(player)
 
 local em = EventManager:new()
 em:emit('init')
+
 
 function love.load()
     em:emit('engine_load')
@@ -21,6 +24,8 @@ function love.update(dt)
 
     em:emit('update_begin')
 
+    star:update(dt)
+
     c:update(dt)
     playerInput()
 
@@ -32,9 +37,9 @@ function love.draw()
     --love.graphics.rectangle("fill",100,100,100,100)
    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 100, 10,0, 2,2)
 
-    love.graphics.setBackgroundColor(0.7,0.7,0.7,1.0)
-    c:draw()
     em:emit('draw_end')
+
+    star:draw()
 end
 
 function love.keypressed(key)
