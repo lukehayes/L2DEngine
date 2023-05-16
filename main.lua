@@ -1,10 +1,11 @@
 local Sprite = require('FW.Sprite')
 local AnimSprite = require('FW.AnimatedSprite')
+local Player = require('FW.Player')
 local AnimSpriteRow = require('FW.AnimatedSpriteRow')
 local Container = require('FW.Container')
 local EventManager = require('FW.EventManager')
 
-local player = AnimSprite:new(350,250, 'assets/tiles.png')
+local playerObj = Player:new(350,250, 'assets/tiles.png')
 local star   = AnimSpriteRow:new(300,250, 'assets/pixel-star.png', 0,3)
 
 local em = EventManager:new()
@@ -14,7 +15,7 @@ function love.load()
     em:emit('engine_load')
     _G.game = {} -- Location for all helpful global functions, values etc.
     _G.game.default_container = Container:new()
-    _G.game.default_container:add(player)
+    _G.game.default_container:add(playerObj)
     _G.game.default_container:add(star)
     _G.game.default_font = love.graphics.newFont('assets/cozette_bitmap.ttf', 13)
 end
@@ -27,7 +28,6 @@ function love.update(dt)
     em:emit('update_begin')
 
     _G.game.default_container:update(dt)
-    playerInput()
 
     em:emit('update_end')
 end
@@ -43,24 +43,3 @@ function love.draw()
     em:emit('draw_end')
 end
 
-function playerInput()
-    -- TODO Refactor this out into the player class.
-
-    local speed = 200
-
-    if love.keyboard.isDown('w') then
-        player.y = player.y - 1 * speed * dt
-        player:play('knight', 'walk', 'up')
-    elseif love.keyboard.isDown('s') then
-        player.y = player.y + 1 * speed * dt
-        player:play('knight', 'walk', 'down')
-    elseif love.keyboard.isDown('a') then
-        player.x = player.x - 1 * speed * dt
-        player:play('knight', 'walk', 'left')
-    elseif love.keyboard.isDown('d') then
-        player.x = player.x + 1 * speed * dt
-        player:play('knight', 'walk', 'right')
-    else 
-        player:play('knight', 'idle', player.anim_direction)
-    end
-end
