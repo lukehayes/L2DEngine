@@ -35,7 +35,7 @@ function love.draw()
     em:emit('draw_begin')
     --love.graphics.rectangle("fill",100,100,100,100)
     love.graphics.setBackgroundColor(0.2,0.6,0.2,1)
-    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 100, 10,0, 2,2)
+    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), love.graphics.newFont('assets/cozette_bitmap.ttf', 13),10, 10,0, 1,1)
 
     _G.game.default_container:draw()
 
