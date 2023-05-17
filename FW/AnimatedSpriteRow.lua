@@ -8,7 +8,7 @@
 local class = require 'libs/middleclass'
 local AnimatedSprite = require 'FW.AnimatedSprite'
 
-local AnimatedSpriteRow = class('AnimatedSpriteRow')
+local AnimatedSpriteRow = class('AnimatedSpriteRow', AnimatedSprite)
 
 --------------------------------------------------------------------------------
 -- Constructor.
