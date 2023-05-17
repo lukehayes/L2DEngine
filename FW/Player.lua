@@ -5,7 +5,7 @@
 local class = require 'libs/middleclass'
 local AnimatedSprite = require 'FW.AnimatedSprite'
 
-local Player = class('Player')
+local Player = class('Player', AnimatedSprite)
 
 --------------------------------------------------------------------------------
 -- Constructor.
@@ -28,14 +28,12 @@ function Player:initialize(x,y, path)
 
     self.animations = require 'FW.animations'
     self.current_anim = self.animations['knight']['idle']['down']
-    self.current_frame = self.current_anim.frame_x
     self.speed = 200
 end
 
 function Player:update(dt)
     self:playerInput(dt)
 end
-
 
 function Player:playerInput(dt)
 
