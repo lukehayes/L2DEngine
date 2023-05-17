@@ -28,7 +28,7 @@ function AnimatedSprite:initialize(x,y, path)
     self.anim_timer = 0
     self.anim_speed = 0.15
     self.anim_direction = 'down'
-    self.isPlaying = false
+    self.isPlaying = true
 
     self.animations = require 'FW.animations'
 
@@ -54,6 +54,14 @@ function AnimatedSprite:play(character, anim, dir)
     self.anim_direction = dir
     self.current_anim = self.animations[character][anim][self.anim_direction]
     return self.current_anim
+end
+
+--------------------------------------------------------------------------------
+-- Stop the current animation.
+--
+-- @return nil
+function AnimatedSprite:start()
+    self.isPlaying = true
 end
 
 --------------------------------------------------------------------------------
