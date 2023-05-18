@@ -27,7 +27,7 @@ function Player:initialize(x,y, path)
     AnimatedSprite.initialize(self, x,y,path)
 
     self.animations = require 'FW.animations'
-    self.current_anim = self.animations['knight']['idle']['down']
+    self.current_anim = self.animations['knight'][self.state][self.direction]
     self.speed = 200
 end
 
