@@ -1,21 +1,27 @@
 local Sprite        = require('FW.Sprite')
+local RawImage      = require('FW.RawImage')
 local AnimSprite    = require('FW.AnimatedSprite')
-local Player        = require('FW.Player')
 local Container     = require('FW.Container')
 local EventManager  = require('FW.EventManager')
 
-local playerObj = AnimSprite:new(350,250, 'assets/tiles.png', 5,10, 10)
-local star      = AnimSprite:new(150,350, 'assets/pixel-star.png', 0,0, 3)
 local em        = EventManager:new()
 em:emit('init')
+local playerObj = AnimSprite:new(500,320, 'assets/tiles.png', 5,10, 10)
 
 function love.load()
     em:emit('engine_load')
     _G.game = {} -- Location for all helpful global functions, values etc.
-    _G.game.default_container = Container:new()
-    _G.game.default_container:add(playerObj)
-    _G.game.default_container:add(star)
     _G.game.default_font = love.graphics.newFont('assets/cozette_bitmap.ttf', 13)
+
+    _G.game.default_container = Container:new()
+
+    -- Add objects to the container.
+    -- 
+    bg = RawImage:new(0,0, 192,144, 'assets/bg.png', 5)
+    _G.game.default_container:add(bg)
+
+    _G.game.default_container:add(playerObj)
+
 end
 
 
@@ -26,6 +32,26 @@ function love.update(dt)
     em:emit('update_begin')
 
     _G.game.default_container:update(dt)
+
+    if love.keyboard.isDown('w') then
+        playerObj.direction = 'up'
+        playerObj.state = 'walk'
+        playerObj.y = playerObj.y - 100 * dt
+    elseif love.keyboard.isDown('s') then
+        playerObj.direction = 'down'
+        playerObj.state = 'walk'
+        playerObj.y = playerObj.y + 100 * dt
+    elseif love.keyboard.isDown('a') then
+        playerObj.direction = 'left'
+        playerObj.state = 'walk'
+        playerObj.x = playerObj.x - 100 * dt
+    elseif love.keyboard.isDown('d') then
+        playerObj.direction = 'right'
+        playerObj.state = 'walk'
+        playerObj.x = playerObj.x + 100 * dt
+    else 
+        playerObj.state = 'idle'
+    end
 
     em:emit('update_end')
 end
