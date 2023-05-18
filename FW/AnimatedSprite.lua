@@ -24,11 +24,17 @@ function AnimatedSprite:initialize(x,y, path, frame_x, frame_y, frame_count)
 
     Sprite.initialize(self, x,y, path, frame_x, frame_y)
 
+    self.animations      = require('FW.animations')
+
+    self.character       = 'knight'
+    self.state           = 'idle'
+    self.direction       = 'down'
+
     self.frame_count     = frame_count
-    self.animation_speed = 0.1
+    self.animation_speed = 0.2
     self.timer           = 0
-    self.start_frame     = self.frame_x
-    self.current_frame   = self.frame_x
+    self.animation       = self.animations[self.character][self.state][self.direction]
+    self.current_frame   = self.animation.frame_x
     self.is_playing      = true
 end
 
@@ -65,10 +71,14 @@ function AnimatedSprite:update(dt)
             self.current_frame = self.current_frame + 1
         end
 
-        if(self.current_frame == self.frame_count) then
-            self.current_frame = self.start_frame
+ 
+        if(self.current_frame == self.animation.frame_x + self.animation.frame_count) then
+            self.current_frame = self.animation.frame_x
         end
     end
+
+    print(self.current_frame)
+
 end
 
 
@@ -77,8 +87,14 @@ end
 --
 -- @return nil
 function AnimatedSprite:draw()
-   print(self.current_frame)
-    local quad = love.graphics.newQuad(self.current_frame * self.tile_size,self.frame_y * self.tile_size, self.tile_size, self.tile_size, self.image)
+
+    local quad = love.graphics.newQuad(
+                        self.current_frame * self.tile_size,
+                        self.animations[self.character][self.state][self.direction].frame_y * self.tile_size,
+                        self.tile_size,
+                        self.tile_size,
+                        self.image)
+
     love.graphics.draw(self.image,quad, self.x, self.y,0, self.scale, self.scale)
 end
 
