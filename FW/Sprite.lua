@@ -21,13 +21,15 @@ local Sprite = class('Sprite', Object)
 -- -- local Spr = Sprite:new(100,100, 'tiles.png', 20,10)
 function Sprite:initialize(x,y, path, frame_x, frame_y)
     Object.initialize(self, x,y)
-    self.image = love.graphics.newImage(path)
+
+    self.image     = love.graphics.newImage(path)
     self.image:setFilter('nearest', 'nearest')
-    self.scale = 3
+
+    self.scale     = 3
     self.tile_size = 16
-    self.frame_x = frame_x
-    self.frame_y = frame_y
-    self.quad = love.graphics.newQuad(self.frame_x * self.tile_size,self.frame_y * self.tile_size, self.tile_size, self.tile_size, self.image)
+    self.frame_x   = frame_x
+    self.frame_y   = frame_y
+    self.quad      = love.graphics.newQuad(self.frame_x * self.tile_size,self.frame_y * self.tile_size, self.tile_size, self.tile_size, self.image)
 end
 
 
