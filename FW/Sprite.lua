@@ -5,7 +5,7 @@
 local class = require 'libs/middleclass'
 local Object = require 'FW.Object'
 
-local Sprite = class('Sprite')
+local Sprite = class('Sprite', Object)
 
 --------------------------------------------------------------------------------
 -- Constructor.
