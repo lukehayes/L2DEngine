@@ -1,14 +1,12 @@
-local Sprite = require('FW.Sprite')
-local AnimSprite = require('FW.AnimatedSprite')
-local Player = require('FW.Player')
-local AnimSpriteRow = require('FW.AnimatedSpriteRow')
-local Container = require('FW.Container')
-local EventManager = require('FW.EventManager')
+local Sprite        = require('FW.Sprite')
+local AnimSprite    = require('FW.AnimatedSprite')
+local Player        = require('FW.Player')
+local Container     = require('FW.Container')
+local EventManager  = require('FW.EventManager')
 
-local playerObj = Player:new(350,250, 'assets/tiles.png')
-local star   = AnimSpriteRow:new(300,250, 'assets/pixel-star.png', 0,3)
-
-local em = EventManager:new()
+local playerObj = AnimSprite:new(350,250, 'assets/tiles.png', 5,10, 10)
+local star      = AnimSprite:new(150,350, 'assets/pixel-star.png', 0,0, 3)
+local em        = EventManager:new()
 em:emit('init')
 
 function love.load()
