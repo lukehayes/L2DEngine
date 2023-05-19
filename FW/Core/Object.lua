@@ -19,6 +19,12 @@ function Object:initialize(x,y)
     self.y = y
     self.w = 10
     self.h = 10
+    self.color = {
+        ['r'] = love.math.random(0,1),
+        ['g'] = love.math.random(0,1),
+        ['b'] = love.math.random(0,1),
+        ['a'] = 1
+    }
     self.id = 999
 end
 
@@ -29,6 +35,12 @@ end
 --
 -- @return nil
 function Object:draw()
+    love.graphics.setColor(
+        self.color.r,
+        self.color.g,
+        self.color.b,
+        self.color.a
+    )
     love.graphics.rectangle('fill', self.x, self.y, self.w, self.h)
 end
 
