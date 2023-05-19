@@ -34,7 +34,8 @@ end
 --
 -- @return Vector2
 function Vector2:__mul(n)
-    assert(type(n) == number, 'Vector multiplication should use a number.')
+    assert(type(n) == 'number', 'Vector multiplication should use a number.')
+
     return Vector2:new(
         self.x * n,
         self.y * n
