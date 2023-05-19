@@ -5,6 +5,7 @@
 --
 -- @classmod Object
 local class = require 'libs/middleclass'
+local Color = require 'FW.GFX.Color'
 
 local Object = class('Object')
 
@@ -19,12 +20,7 @@ function Object:initialize(x,y)
     self.y = y
     self.w = 10
     self.h = 10
-    self.color = {
-        ['r'] = love.math.random(0,1),
-        ['g'] = love.math.random(0,1),
-        ['b'] = love.math.random(0,1),
-        ['a'] = 1
-    }
+    self.color = Color:new(1,0,1)
     self.id = 999
 end
 
