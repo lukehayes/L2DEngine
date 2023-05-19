@@ -3,7 +3,7 @@
 --
 -- @classmod Sprite
 local class = require 'libs/middleclass'
-local Object = require 'FW.Object'
+local Object = require 'FW.Core.Object'
 
 local Sprite = class('Sprite', Object)
 

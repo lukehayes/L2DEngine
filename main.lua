@@ -1,7 +1,7 @@
-local Sprite        = require('FW.Sprite')
-local RawImage      = require('FW.RawImage')
-local AnimSprite    = require('FW.AnimatedSprite')
-local Container     = require('FW.Container')
+local Sprite        = require('FW.GFX.Sprite')
+local RawImage      = require('FW.GFX.RawImage')
+local AnimSprite    = require('FW.GFX.AnimatedSprite')
+local Container     = require('FW.DS.Container')
 local EventManager  = require('FW.EventManager')
 
 local em        = EventManager:new()

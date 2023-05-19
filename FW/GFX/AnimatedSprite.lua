@@ -3,7 +3,7 @@
 --
 -- @classmod AnimatedSprite
 local class = require 'libs/middleclass'
-local Sprite = require 'FW.Sprite'
+local Sprite = require 'FW.GFX.Sprite'
 
 local AnimatedSprite = class('AnimatedSprite', Sprite)
 

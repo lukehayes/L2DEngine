@@ -2,10 +2,10 @@
 -- RawImage is for a displaying an entire image to the screen.
 -- FW.Sprite should be used for showing a specific section(a tile) of an Image.
 --
--- @classmod Object
+-- @classmod RawImage
 local class = require 'libs/middleclass'
 
-local Object = require 'FW.Object'
+local Object = require 'FW.Core.Object'
 
 local RawImage = class('RawImage', Object)
 --------------------------------------------------------------------------------
