@@ -37,6 +37,26 @@ end
 
 function Player:playerInput(dt)
 
+    --if love.keyboard.isDown('w') then
+        --playerObj.direction = 'up'
+        --playerObj.state = 'walk'
+        --playerObj.y = playerObj.y - 100 * dt
+    --elseif love.keyboard.isDown('s') then
+        --playerObj.direction = 'down'
+        --playerObj.state = 'walk'
+        --playerObj.y = playerObj.y + 100 * dt
+    --elseif love.keyboard.isDown('a') then
+        --playerObj.direction = 'left'
+        --playerObj.state = 'walk'
+        --playerObj.x = playerObj.x - 100 * dt
+    --elseif love.keyboard.isDown('d') then
+        --playerObj.direction = 'right'
+        --playerObj.state = 'walk'
+        --playerObj.x = playerObj.x + 100 * dt
+    --else 
+        --playerObj.state = 'idle'
+    --end
+
     if love.keyboard.isDown('w') then
         self.y = self.y - 1 * self.speed * dt
         self:play('knight', 'walk', 'up')
