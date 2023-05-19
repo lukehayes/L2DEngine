@@ -19,6 +19,7 @@ function Object:initialize(x,y)
     self.y = y
     self.w = 10
     self.h = 10
+    self.id = 999
 end
 
 

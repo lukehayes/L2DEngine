@@ -34,6 +34,8 @@ end
 --
 -- @return nil
 function Container:add(entity)
+    local id = self:size() + 1
+    entity.id  = id
     table.insert(self.entities, entity)
 end
 
