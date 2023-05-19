@@ -35,7 +35,6 @@ end
 --
 -- @return nil
 function RawImage:draw()
-    print('Drawing Raw')
     love.graphics.draw(self.image,self.quad, self.x, self.y, 0, self.scale, self.scale)
 end
 

@@ -71,14 +71,10 @@ function AnimatedSprite:update(dt)
             self.current_frame = self.current_frame + 1
         end
 
- 
         if(self.current_frame == self.animation.frame_x + self.animation.frame_count) then
             self.current_frame = self.animation.frame_x
         end
     end
-
-    print(self.current_frame)
-
 end
 
 
