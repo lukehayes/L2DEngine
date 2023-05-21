@@ -8,6 +8,7 @@ local Game          = require('FW.Core.Game')
 local em        = EventManager:new()
 em:emit('init')
 
+
 function love.load()
     em:emit('engine_load')
     _G.game = {} -- Location for all helpful global functions, values etc.
@@ -35,8 +36,9 @@ end
 
 function love.draw()
     em:emit('draw_begin')
-    --love.graphics.rectangle("fill",100,100,100,100)
-    love.graphics.setBackgroundColor(0.2,0.7,0.4,1)
+
+    local tint = 0.4
+    love.graphics.setBackgroundColor(tint, tint, tint,1.0)
     love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), Game:default_font(),10, 10,0, 1,1)
 
     _G.game.default_container:draw()
