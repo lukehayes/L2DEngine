@@ -21,6 +21,20 @@ function Color:initialize(r,g,b,a)
     self.a = a
 end
 
+--------------------------------------------------------------------------------
+-- Generate a random color.
+--
+--
+function Color.static:random(r,g,b)
+
+    local r = love.math.random(0,1)
+    local g = love.math.random(0,1)
+    local b = love.math.random(0,1)
+    local a = love.math.random(0,1)
+
+    local c = Color:new(r,g,b,c)
+
+    return c
 end
 
 return Color
