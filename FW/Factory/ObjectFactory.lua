@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Generate N number of objects for testing.
+-- Generate N number of objects of any type for testing.
 --
 -- @classmod ObjectFactory
 local class  = require 'libs/middleclass'
@@ -20,9 +20,9 @@ end
 --------------------------------------------------------------------------------
 -- Generate N number of base objects for testing.
 --
--- @tparam number x The x position of the sprite.
--- @tparam number y The y position of the sprite.
+-- @tparam number count The number of objects to draw.
 --
+-- @return nil.
 function ObjectFactory.static:generate(count)
     for x = 1,count do
         for y = 1,count do
