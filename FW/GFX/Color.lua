@@ -51,4 +51,20 @@ function Color.static:randomBias(bias)
     return Color:new(r,g,b,a)
 end
 
+--------------------------------------------------------------------------------
+-- Generate a random color with a bias towards BLUE.
+--
+-- @tparam number bias A value bias between 0.0 and 1.0.
+--
+-- @return FW.GFX.Color
+function Color.static:randomBiasBlue(bias, biasRest)
+
+    local r = love.math.random(0.0,biasRest)
+    local g = love.math.random(0.0,biasRest)
+    local b = love.math.random(0.0,bias)
+    local a = love.math.random(1,1)
+
+    return Color:new(r,g,b,a)
+end
+
 return Color
