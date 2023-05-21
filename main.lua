@@ -3,6 +3,7 @@ local RawImage      = require('FW.GFX.RawImage')
 local AnimSprite    = require('FW.GFX.AnimatedSprite')
 local Container     = require('FW.DS.Container')
 local EventManager  = require('FW.EventManager')
+local Game          = require('FW.Core.Game')
 
 local em        = EventManager:new()
 em:emit('init')
@@ -16,8 +17,8 @@ function love.load()
 
     -- Add objects to the container.
     -- 
-    local bg = RawImage:new(0,0, 192,144, 'assets/bg.png', 5)
-    _G.game.default_container:add(bg)
+    --local bg = RawImage:new(0,0, 192,144, 'assets/bg.png', 5)
+    --_G.game.default_container:add(bg)
 end
 
 
@@ -36,7 +37,7 @@ function love.draw()
     em:emit('draw_begin')
     --love.graphics.rectangle("fill",100,100,100,100)
     love.graphics.setBackgroundColor(0.2,0.7,0.4,1)
-    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), _G.game.default_font,10, 10,0, 4,4)
+    love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), Game:default_font(),10, 10,0, 1,1)
 
     _G.game.default_container:draw()
 
