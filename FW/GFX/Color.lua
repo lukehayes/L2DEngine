@@ -24,17 +24,31 @@ end
 --------------------------------------------------------------------------------
 -- Generate a random color.
 --
---
-function Color.static:random(r,g,b)
+-- @return FW.GFX.Color.
+function Color.static:random()
 
     local r = love.math.random(0,1)
     local g = love.math.random(0,1)
     local b = love.math.random(0,1)
     local a = love.math.random(0,1)
 
-    local c = Color:new(r,g,b,c)
+    return Color:new(r,g,b,a)
+end
 
-    return c
+--------------------------------------------------------------------------------
+-- Generate a random color with a bias towards a specific color.
+--
+-- @tparam number bias A value bias between 0.0 and 1.0.
+--
+-- @return FW.GFX.Color
+function Color.static:randomBias(bias)
+
+    local r = love.math.random(bias,1)
+    local g = love.math.random(bias,1)
+    local b = love.math.random(bias,1)
+    local a = love.math.random(0,1)
+
+    return Color:new(r,g,b,a)
 end
 
 return Color
