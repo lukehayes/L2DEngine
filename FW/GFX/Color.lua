@@ -12,12 +12,15 @@ local Color = class('Color')
 -- @tparam number r The RED component.
 -- @tparam number g The GREEN component.
 -- @tparam number b The BLUE component.
+-- @tparam number a The ALPHA component.
 --
-function Color:initialize(r,g,b)
+function Color:initialize(r,g,b,a)
     self.r = r
     self.g = g
     self.b = b
-    self.a = 1
+    self.a = a
+end
+
 end
 
 return Color
