@@ -44,12 +44,17 @@ function Camera:draw()
 
     local n = 100
 
+    love.graphics.push()
+
     print(self.x, self.target.x)
+    print(self.y, self.target.y)
 
     love.graphics.translate(
-        self.target.x / 2,
-        self.target.y / 2
+        self.target.x - self.x,
+        self.target.y - self.y
     )
+
+    love.graphics.pop()
 end
 
 --------------------------------------------------------------------------------
