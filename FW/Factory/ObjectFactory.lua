@@ -28,8 +28,8 @@ end
 function ObjectFactory.static:generate(count)
     for x = 1,count do
         for y = 1,count do
-            local rx = love.math.random(10,600)
-            local ry = love.math.random(10,600)
+            local rx = love.math.random(10, love.graphics.getWidth() * 2)
+            local ry = love.math.random(10,love.graphics.getHeight() * 2)
             local o = Object:new(rx,ry)
             o.color = Color:random()
             _G.game.default_container:add(o)
@@ -46,8 +46,8 @@ end
 function ObjectFactory.static:generateEntities(count)
     for x = 1,count do
         for y = 1,count do
-            local rx = love.math.random(10,600)
-            local ry = love.math.random(10,600)
+            local rx = love.math.random(10, love.graphics.getWidth())
+            local ry = love.math.random(10,love.graphics.getHeight())
             local o  = Entity:new(rx,ry, 4)
             o.color  = Color:random()
             _G.game.default_container:add(o)
@@ -64,8 +64,8 @@ end
 function ObjectFactory.static:generateSpriteRows(count)
     for x = 1,count do
         for y = 1,count do
-            local rx = love.math.random(10,600)
-            local ry = love.math.random(10,600)
+            local rx = love.math.random(10, love.graphics.getWidth())
+            local ry = love.math.random(10,love.graphics.getHeight())
             local o  = SpriteRow:new(rx,ry, 'assets/pixel-star.png',0,0,3)
             o.current_frame = love.math.random(0,3)
             o.color  = Color:randomBias(0.3)
