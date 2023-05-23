@@ -53,7 +53,6 @@ end
 --
 -- @return nil
 function Camera:update(dt)
-    self.c = self.c + 0.1
 end
 
 return Camera
