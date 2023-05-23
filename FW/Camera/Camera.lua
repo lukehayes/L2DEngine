@@ -39,19 +39,11 @@ end
 -- @return nil
 function Camera:draw()
 
-    local n = 100
-
-    love.graphics.push()
-
-    print(self.x, self.target.x)
-    print(self.y, self.target.y)
-
+    -- Sets the target to be on the center of the screen.
     love.graphics.translate(
-        self.target.x - self.x,
-        self.target.y - self.y
+        -self.target.x + self.w / 2,
+        -self.target.y + self.h / 2
     )
-
-    love.graphics.pop()
 end
 
 --------------------------------------------------------------------------------
