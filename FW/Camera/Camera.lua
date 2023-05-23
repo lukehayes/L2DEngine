@@ -6,6 +6,7 @@
 -- @classmod Camera
 local class = require 'libs/middleclass'
 local Color = require 'FW.GFX.Color'
+local Game  = require 'FW.Core.Game'
 
 local Camera = class('Camera')
 
@@ -14,17 +15,13 @@ local Camera = class('Camera')
 --
 -- @tparam number x The x position of the sprite.
 -- @tparam number y The y position of the sprite.
--- @tparam number w The width of the camera view.
--- @tparam number h The height of the camera view.
 --
-function Camera:initialize(x,y, w,h, target)
+function Camera:initialize(x,y, target)
     self.x = x
     self.y = y
-    self.w = w
-    self.h = h
+    self.w = Game:width()
+    self.h = Game:height()
     self.target = target
-
-    self.c = 0
 end
 
 
