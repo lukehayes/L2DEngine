@@ -28,7 +28,7 @@ function SpriteRow:initialize(x,y, path, frame_x, frame_y, frame_count)
 
     self.frame_count     = frame_count
     self.animation_speed = 0.3
-    self.tile_size       = 5
+    self.tile_size       = 16
     self.current_frame   = 0
     self.timer           = 0
 end
