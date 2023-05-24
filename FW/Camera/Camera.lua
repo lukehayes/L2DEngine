@@ -1,7 +1,6 @@
 --------------------------------------------------------------------------------
--- Base class of most things in the framework and is not meant to be
--- instantiated directly. Most of the useful things in this
--- framework should inherit this class.
+-- Simple 2D Camera. Attact a target to have that target centered on the screen.
+-- The target object MUST be added after the Camera is added the the scene.
 --
 -- @classmod Camera
 local class = require 'libs/middleclass'
