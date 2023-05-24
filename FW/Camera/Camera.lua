@@ -21,6 +21,10 @@ function Camera:initialize(x,y, target)
     self.w = Game:width()
     self.h = Game:height()
     self.target = target
+
+    self.shake = true
+    self.shake_power = 2
+    self.shake_duration = 2
 end
 
 
