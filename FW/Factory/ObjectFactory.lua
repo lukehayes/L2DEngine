@@ -67,7 +67,7 @@ function ObjectFactory.static:generateSpriteRows(count)
         for y = 1,count do
             local rx = love.math.random(10, Game:width() * 2)
             local ry = love.math.random(10, Game:height() * 2)
-            local o  = SpriteRow:new(rx,ry, 'assets/pixel-star.png',0,0,3)
+            local o  = SpriteRow:new(rx,ry, 'assets/pixel-star.png',0,0,5)
             o.current_frame = love.math.random(0,3)
             o.color  = Color:randomBias(0.3)
             _G.game.default_container:add(o)
