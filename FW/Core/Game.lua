@@ -12,7 +12,6 @@ local Game = class('Game')
 -- Constructor.
 --
 function Game:initialize()
-
     -- Set the default filter to render images(pixel art specifically))
     -- to be as crisp as possible, globally.
     love.graphics.setDefaultFilter('nearest', 'nearest')

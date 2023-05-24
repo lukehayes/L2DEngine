@@ -22,8 +22,6 @@ function RawImage:initialize(x,y, w, h, path, scale)
     Object.initialize(self, x,y)
 
     self.image     = love.graphics.newImage(path)
-    self.image:setFilter('nearest', 'nearest')
-
     self.scale     = scale
     self.quad      = love.graphics.newQuad(0,0,w,h,self.image)
 end
