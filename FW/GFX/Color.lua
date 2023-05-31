@@ -82,4 +82,52 @@ function Color.static:randomBiasBlue(bias, biasRest)
     return Color:new(r,g,b,a)
 end
 
+--------------------------------------------------------------------------------
+-- Blue color helper.
+--
+-- @return FW.GFX.Color
+function Color.static:BLUE()
+    return Color:new(0,0,1,1)
+end
+
+--------------------------------------------------------------------------------
+-- Green color helper.
+--
+-- @return FW.GFX.Color
+function Color.static:GREEN()
+    return Color:new(0,1,0,1)
+end
+
+--------------------------------------------------------------------------------
+-- Red color helper.
+--
+-- @return FW.GFX.Color
+function Color.static:RED()
+    return Color:new(1,0,0,1)
+end
+
+--------------------------------------------------------------------------------
+-- Black color helper.
+--
+-- @return FW.GFX.Color
+function Color.static:BLACK()
+    return Color:new(0,0,0,1)
+end
+
+--------------------------------------------------------------------------------
+-- White color helper.
+--
+-- @return FW.GFX.Color
+function Color.static:WHITE()
+    return Color:new(1,1,1,1)
+end
+
+--------------------------------------------------------------------------------
+-- Yellow color helper.
+--
+-- @return FW.GFX.Color
+function Color.static:YELLOW()
+    return Color:new(1,1,0,1)
+end
+
 return Color
