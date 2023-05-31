@@ -90,14 +90,6 @@ end
 -- @return nil
 function Entity:update(dt)
 
-    if(self:checkXBounds()) then
-        self.w = love.math.random(5,20)
-    end
-
-    if(self:checkYBounds()) then
-        self.h = love.math.random(5,20)
-    end
-
     self:checkBounds()
 
     self.x = self.x + self.dx * self.speed * dt
