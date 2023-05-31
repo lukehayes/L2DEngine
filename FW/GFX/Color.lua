@@ -36,6 +36,21 @@ function Color.static:random()
 end
 
 --------------------------------------------------------------------------------
+-- Generate a random color with specific alpha value.
+--
+-- @return FW.GFX.Color.
+function Color.static:randomAlphaBias(a)
+
+    local r = love.math.random(0,1)
+    local g = love.math.random(0,1)
+    local b = love.math.random(0,1)
+    local a = love.math.random(0,a)
+
+    return Color:new(r,g,b,a)
+end
+
+
+--------------------------------------------------------------------------------
 -- Generate a random color with a bias towards a specific color.
 --
 -- @tparam number bias A value bias between 0.0 and 1.0.
