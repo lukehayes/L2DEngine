@@ -16,15 +16,16 @@ local Entity = class('Entity', Object)
 -- @tparam number size The width AND height of an entitiy.
 --
 function Entity:initialize(x,y, size)
-    Object.initialize(self,x,y)
-    self.speed = love.math.random(10,200)
 
+    Object.initialize(self,x,y)
 
     local dir = {1,-1}
-    self.w = size
-    self.h = size
-    self.dx = dir[love.math.random(1,2)]
-    self.dy = dir[love.math.random(1,2)]
+
+    self.speed = love.math.random(10,200)
+    self.w     = size
+    self.h     = size
+    self.dx    = dir[love.math.random(1,2)]
+    self.dy    = dir[love.math.random(1,2)]
 end
 
 
@@ -40,7 +41,11 @@ function Entity:draw()
         self.color.b,
         self.color.a
     )
+
     love.graphics.rectangle('fill', self.x, self.y, self.w, self.h)
+
+    -- Reset the draw color back to white.
+    love.graphics.setColor(1,1,1,1)
 end
 
 --------------------------------------------------------------------------------
