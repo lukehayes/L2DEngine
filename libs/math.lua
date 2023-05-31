@@ -94,14 +94,23 @@ function math.collides(a,b)
          entity_b.y < entity_a.y+entity_a.h
 end
 
--- Simple AABB bounding box collision with
--- explicit entity values.
+-- Simple AABB bounding box collision.
 --
-function math.bb(x1,y1,w1,h1, x2,y2,w2,h2)
+function math.aabb(x1,y1,w1,h1, x2,y2,w2,h2)
   return x1 < x2+w2 and
          x2 < x1+w1 and
          y1 < y2+h2 and
          y2 < y1+h1
+end
+
+-- Simple AABB bounding box collision for Entities.
+--
+function math.aabbEntity(a,b)
+
+  return a.x < b.x + b.w and
+         b.x < a.x + a.w and
+         a.y < b.y + b.h and
+         b.y < a.y + a.h
 end
 
 return math
