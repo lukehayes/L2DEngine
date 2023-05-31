@@ -20,7 +20,7 @@ end
 --
 -- @tparam Color color The color of the rectangle.
 --
--- @return FW.GFX.Color
+-- @return nil
 function Renderer.static:drawRect(x,y,w,h,color)
 
     love.graphics.setColor(
@@ -34,6 +34,31 @@ function Renderer.static:drawRect(x,y,w,h,color)
     Renderer:resetColor()
 end
 
+--------------------------------------------------------------------------------
+-- Draw an Entity.
+--
+-- @tparam Entity entity The entity to draw.
+--
+-- @return nil
+function Renderer.static:drawEntity(entity)
+
+    love.graphics.setColor(
+        entity.color.r,
+        entity.color.g,
+        entity.color.b,
+        entity.color.a
+    )
+
+    love.graphics.rectangle(
+        'fill',
+        entity.x,
+        entity.y,
+        entity.w,
+        entity.h
+    )
+
+    Renderer:resetColor()
+end
 --------------------------------------------------------------------------------
 -- Reset the draw color back to white.
 --
