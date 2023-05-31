@@ -35,6 +35,23 @@ function Renderer.static:drawRect(x,y,w,h,color)
 end
 
 --------------------------------------------------------------------------------
+-- Draw a WHITE rectangle with a 'line' style.
+--
+-- @tparam number x The x position.
+-- @tparam number y The y position.
+-- @tparam number w The w position.
+-- @tparam number h The h position.
+--
+-- @return nil
+function Renderer.static:draw(x,y,w,h)
+
+    love.graphics.setColor(1,1,1,1)
+    love.graphics.rectangle('line', x, y, w,h)
+
+    Renderer:resetColor()
+end
+
+--------------------------------------------------------------------------------
 -- Draw an Entity.
 --
 -- @tparam Entity entity The entity to draw.
