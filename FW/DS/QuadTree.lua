@@ -13,6 +13,8 @@ local QuadTree = class('QuadTree')
 --
 function QuadTree:initialize()
     self.root = {}
+    self.rootBoundX = Game:width()
+    self.rootBoundY = Game:height()
 end
 
 --------------------------------------------------------------------------------
