@@ -94,6 +94,14 @@ function math.collides(a,b)
          entity_b.y < entity_a.y+entity_a.h
 end
 
+-- Check if a point is completely inside a rectangle.
+--
+function math.pointInside(x1,y1,w1,h1,x2,y2,w2,h2)
+    -- FIXME Implement this correctly
+    return x1 > x2 and
+           w1 < (w2 - x1) + w1
+end
+
 -- Simple AABB bounding box collision.
 --
 function math.aabb(x1,y1,w1,h1, x2,y2,w2,h2)
