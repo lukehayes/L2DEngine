@@ -130,4 +130,12 @@ function Color.static:YELLOW()
     return Color:new(1,1,0,1)
 end
 
+--------------------------------------------------------------------------------
+-- GREY color helper.
+--
+-- @return FW.GFX.Color
+function Color.static:GREY()
+    local shade = 0.5
+    return Color:new(shade,shade,shade,shade)
+end
 return Color
