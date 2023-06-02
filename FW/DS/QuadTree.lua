@@ -103,5 +103,19 @@ function QuadTree:drawRects()
     end
 end
 
+function QuadTree:drawPoints()
+
+    for _,e in ipairs(self.entities) do
+        love.graphics.rectangle(
+            'line',
+            e.x,
+            e.y,
+            e.w,
+            e.h
+        )
+    end
+
+end
+
 return QuadTree
 

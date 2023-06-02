@@ -52,59 +52,6 @@ function love.draw()
 end
 
 
-function drawQtPoints(qt)
-
-    for _,e in ipairs(qt.entities) do
-        love.graphics.rectangle('line',
-            e.x,
-            e.y,
-            e.w,
-            e.h
-        )
-    end
-
-    
-    if(qt.northwest ~= nil) then
-        drawQtPoints(qt.northwest.entities)
-    end
-
-end
-
-function drawQuadTree(qt)
-
-    love.graphics.rectangle('line',
-        qt.northeast.bounds.x,
-        qt.northeast.bounds.y,
-        qt.northeast.bounds.w,
-        qt.northeast.bounds.h
-    )
-
-    love.graphics.rectangle('line',
-        qt.northwest.bounds.x,
-        qt.northwest.bounds.y,
-        qt.northwest.bounds.w,
-        qt.northwest.bounds.h
-    )
-
-    love.graphics.rectangle('line',
-        qt.southeast.bounds.x,
-        qt.southeast.bounds.y,
-        qt.southeast.bounds.w,
-        qt.southeast.bounds.h
-    )
-
-    love.graphics.rectangle('line',
-        qt.southwest.bounds.x,
-        qt.southwest.bounds.y,
-        qt.southwest.bounds.w,
-        qt.southwest.bounds.h
-    )
-
-    drawQuadTree(qt.northeast)
-    drawQuadTree(qt.northwest)
-    drawQuadTree(qt.southeast)
-    drawQuadTree(qt.southwest)
-end
 
 function love.keypressed(key)
    if key == "space" then
